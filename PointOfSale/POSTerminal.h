@@ -22,11 +22,17 @@ class POSTerminal
         double getTotal() const;
 
 	private:
+        //No Assignment or copying of the class
+        POSTerminal(const POSTerminal &);
+        POSTerminal& operator=(const POSTerminal &);
+        
+		double getSingleItemTotal(int count, 
+				const ItemPricing& pricing) const;
+
+        //data members
 		int d_itemCounts[256];
 		ItemPricing d_pricingTable[256];
 
-		double getSingleItemTotal(int count, 
-				const ItemPricing& pricing) const;
 };
 
 #endif //POS_TERMINAL_H
